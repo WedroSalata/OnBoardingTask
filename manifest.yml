@@ -1,0 +1,29 @@
+modules:
+  jira:globalPage:
+    - key: on-boarding-app-1-hello-world-page
+      resource: main
+      resolver:
+        function: resolver
+      title: Onboarding App 1
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/customUI/build
+app:
+  id: ari:cloud:ecosystem::app/595c6291-bd03-4a3e-9041-41e4ed73fdce
+permissions:
+  content:
+    styles:
+      - unsafe-inline
+  scopes:
+    - read:jira-user
+    - read:jira-work
+    - storage:app
+  external:
+      fetch:
+        client:
+          - "*"
+        backend:
+          - "https://api.openai.com/*"
